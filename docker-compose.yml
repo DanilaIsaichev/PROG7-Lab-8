@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+ web:
+  build:
+   context: .
+  ports:
+  - 80:80
+  environment:
+  - NAME=Исайчев Данила
+  volumes:
+  - ./:/app
+
+ psqldb:
+  image: postgres
+  ports:
+  - 3306:3306
+  environment:
+  - POSTGRES_PASSWORD=p@ssw0rd1
+  volumes:
+  - psql:/var/lib/postgresql/
+  - psql_config:/usr/share/postgresql/
+
+volumes:
+  psql:
+  psql_config:
